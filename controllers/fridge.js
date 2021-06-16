@@ -298,5 +298,7 @@ exports.deleteItem = async (req, res, next) => {
 			new HttpError('Something went wrong', 500)
 		);
 	}
-	res.json({ message: 'Succesfully deleted item' });
+	res
+		.status(200)
+		.json({ message: 'Succesfully deleted item' });
 };
