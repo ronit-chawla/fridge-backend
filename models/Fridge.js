@@ -3,20 +3,32 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const fridgeSchema = new Schema({
-	title    : {
+	title      : {
 		type     : String,
 		required : true
 	},
-	password : {
+	password   : {
 		type     : String,
 		required : true
 	},
-	items    : [
+	items      : [
 		{
 			type : mongoose.Types.ObjectId,
 			ref  : 'Item'
 		}
-	]
+	],
+	type       : {
+		type     : String,
+		enum     : [
+			'fridge',
+			'freezer'
+		],
+		required : true
+	},
+	expiryDate : {
+		type     : String,
+		required : true
+	}
 });
 
 fridgeSchema.set('toJSON', { getters: true });

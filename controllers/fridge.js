@@ -128,7 +128,7 @@ exports.addItem = async (req, res, next) => {
 		return next(new HttpError('Invalid inputs.', 422));
 	}
 	const { id } = req.params;
-	const { title, quantity } = req.body;
+	const { title, quantity, expiryDate, type } = req.body;
 
 	let fridge;
 	try {
@@ -153,7 +153,9 @@ exports.addItem = async (req, res, next) => {
 
 	const item = new Item({
 		title,
-		quantity
+		quantity,
+		expiryDate,
+		type
 	});
 
 	try {
