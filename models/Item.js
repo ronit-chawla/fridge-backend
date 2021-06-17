@@ -20,8 +20,7 @@ const itemSchema = new Schema({
 		required : true
 	},
 	expiryDate : {
-		type     : String,
-		required : true
+		type : String
 	}
 });
 
