@@ -3,13 +3,25 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const itemSchema = new Schema({
-	title    : {
+	title      : {
 		type     : String,
 		required : true
 	},
-	quantity : {
+	quantity   : {
 		type    : Number,
 		default : 1
+	},
+	type       : {
+		type     : String,
+		enum     : [
+			'fridge',
+			'freezer'
+		],
+		required : true
+	},
+	expiryDate : {
+		type     : String,
+		required : true
 	}
 });
 
